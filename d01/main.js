@@ -1,4 +1,4 @@
-import * as fs from 'node:fs/promises'
+// attempt to load input directly from website
 //const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 // require("dotenv").config({ path: "./config/.env" })
 // console.log(process.env.cookie)
@@ -12,7 +12,13 @@ import * as fs from 'node:fs/promises'
 // }
 // input = getInput()
 
-let fileHandle = await fs.open('./input.txt', 'r')
-
-
-await fileHandle.close()
+// Part one
+import * as fs from 'node:fs/promises'
+let input = await fs.readFile('./input.txt', 'utf-8')
+let elfs = input.split('\n\n')
+let elfsAsCalories = elfs.map(elf => elf.split('\n').reduce((calories, meal)=> calories + +meal, 0))
+//let maxCalories = Math.max(...elfsAsCalories)
+// Part two
+elfsAsCalories.sort((a,b)=>b-a)
+let sumOfTopThree = elfsAsCalories[0] + elfsAsCalories[1] + elfsAsCalories[2]
+console.log(sumOfTopThree)
