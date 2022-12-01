@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "node environment code for 2022 Advent of Code event",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
