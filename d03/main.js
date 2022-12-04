@@ -1,4 +1,3 @@
-import { checkPrimeSync } from 'node:crypto'
 import * as fs from 'node:fs/promises'
 let input = await fs.readFile('./input.txt', 'utf-8')
 // Part One
